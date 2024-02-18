@@ -36,11 +36,11 @@ def create_twit():
     return jsonify({'status':'succes'})
 
 
-
-
 @app.route('/twit',methods=['GET'])
-def read_twit():
-    return jsonify({'twits': twits})
+def read_twits():
+    twit_json = [twit.to_json() for twit in twits]
+    return jsonify({'twits': twit_json})
+
 
 
 
